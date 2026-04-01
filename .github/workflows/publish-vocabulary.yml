@@ -1,0 +1,43 @@
+name: Publish Vocabulary
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'vocabulary/cune-iiif-orm.jsonld'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Prepare site
+        run: |
+          mkdir -p _site
+          cp vocabulary/cune-iiif-orm.jsonld _site/ns
+          cp vocabulary/cune-iiif-orm.jsonld _site/ns.jsonld
+          touch _site/.nojekyll
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+      - uses: actions/deploy-pages@v4
+        id: deployment
