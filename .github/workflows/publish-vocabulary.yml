@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'vocabulary/cune-iiif-orm.jsonld'
+      - 'ontology.jsonld'
   workflow_dispatch:
 
 permissions:
