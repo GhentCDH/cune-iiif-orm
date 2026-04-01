@@ -1,0 +1,202 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "cune-iiif-orm": "https://ghentcdh.github.io/cune-iiif-orm/ns#"
+  },
+  "@graph": [
+    {
+      "@id": "https://ghentcdh.github.io/cune-iiif-orm/ns",
+      "@type": "owl:Ontology",
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Cune-iiif-orm Vocabulary"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Vocabulary for the Cune-iii-form IIIF Manifest Builder. Defines custom types and properties used as extensions to the IIIF Presentation API 3.0 for cuneiform tablet annotations."
+      },
+      "dcterms:creator": "Ghent Centre for Digital Humanities - Ghent University",
+      "dcterms:license": "https://creativecommons.org/licenses/by/4.0/",
+      "owl:versionInfo": "0.1.0"
+    },
+
+    {
+      "@id": "cune-iiif-orm:LayerPreset",
+      "@type": "rdfs:Class",
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Layer Preset"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A named preset configuration for IIIF choices. Used as the body type of a W3C Web Annotation with motivation 'supplementing' to define which images should be shown and at what opacity when the preset is activated."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://ghentcdh.github.io/cune-iiif-orm/ns"
+      }
+    },
+
+    {
+      "@id": "cune-iiif-orm:SignPosition",
+      "@type": "rdfs:Class",
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Sign Position"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Describes the structural position of a cuneiform sign within a tablet's text. Encodes the tablet face, line number, word index, and character index, providing a coordinate within the text's logical structure independent of its visual location on the canvas."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://ghentcdh.github.io/cune-iiif-orm/ns"
+      }
+    },
+
+    {
+      "@id": "cune-iiif-orm:preset",
+      "@type": "rdf:Property",
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "preset"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "An ordered list of layer configurations belonging to a LayerPreset. Each item identifies an image by its IIIF image URL and specifies the opacity at which it should be rendered."
+      },
+      "rdfs:domain": {
+        "@id": "cune-iiif-orm:LayerPreset"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://ghentcdh.github.io/cune-iiif-orm/ns"
+      }
+    },
+
+    {
+      "@id": "cune-iiif-orm:opacity",
+      "@type": "rdf:Property",
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "opacity"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The opacity level at which an image should be rendered, expressed as a decimal between 0.0 (fully transparent) and 1.0 (fully opaque)."
+      },
+      "rdfs:range": {
+        "@id": "xsd:decimal"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://ghentcdh.github.io/cune-iiif-orm/ns"
+      }
+    },
+
+    {
+      "@id": "cune-iiif-orm:transliterating",
+      "@type": "rdf:Property",
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "transliterating"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Annotation purpose value indicating that the annotation body contains a transliteration of the targeted cuneiform sign or text. Used as the value of the 'purpose' property on a W3C Web Annotation TextualBody."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://ghentcdh.github.io/cune-iiif-orm/ns"
+      }
+    },
+
+    {
+      "@id": "cune-iiif-orm:side",
+      "@type": "rdf:Property",
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "side"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The face of the tablet on which the sign appears, e.g. 'obverse', 'reverse', 'top', 'bottom', 'left', 'right'."
+      },
+      "rdfs:domain": {
+        "@id": "cune-iiif-orm:SignPosition"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://ghentcdh.github.io/cune-iiif-orm/ns"
+      }
+    },
+
+    {
+      "@id": "cune-iiif-orm:lineIndex",
+      "@type": "rdf:Property",
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "lineIndex"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The 1-based line number of the sign within the tablet face identified by the 'side' property."
+      },
+      "rdfs:domain": {
+        "@id": "cune-iiif-orm:SignPosition"
+      },
+      "rdfs:range": {
+        "@id": "xsd:positiveInteger"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://ghentcdh.github.io/cune-iiif-orm/ns"
+      }
+    },
+
+    {
+      "@id": "cune-iiif-orm:wordIndex",
+      "@type": "rdf:Property",
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "wordIndex"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The 1-based position of the word containing the sign within the line identified by 'lineIndex'."
+      },
+      "rdfs:domain": {
+        "@id": "cune-iiif-orm:SignPosition"
+      },
+      "rdfs:range": {
+        "@id": "xsd:positiveInteger"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://ghentcdh.github.io/cune-iiif-orm/ns"
+      }
+    },
+
+    {
+      "@id": "cune-iiif-orm:charIndex",
+      "@type": "rdf:Property",
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "charIndex"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The 1-based position of the sign within the word identified by 'wordIndex'."
+      },
+      "rdfs:domain": {
+        "@id": "cune-iiif-orm:SignPosition"
+      },
+      "rdfs:range": {
+        "@id": "xsd:positiveInteger"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://ghentcdh.github.io/cune-iiif-orm/ns"
+      }
+    }
+  ]
+}
