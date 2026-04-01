@@ -5,12 +5,13 @@
     "owl": "http://www.w3.org/2002/07/owl#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "dcterms": "http://purl.org/dc/terms/",
+    "oa": "http://www.w3.org/ns/oa#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "cune-iiif-orm": "https://ghentcdh.github.io/cune-iiif-orm/ns#"
+    "cune-iiif-orm": "https://w3id.org/cune-iiif-orm#"
   },
   "@graph": [
     {
-      "@id": "https://ghentcdh.github.io/cune-iiif-orm/ns",
+      "@id": "https://w3id.org/cune-iiif-orm",
       "@type": "owl:Ontology",
       "rdfs:label": {
         "@language": "en",
@@ -37,7 +38,7 @@
         "@value": "A named preset configuration for IIIF choices. Used as the body type of a W3C Web Annotation with motivation 'supplementing' to define which images should be shown and at what opacity when the preset is activated."
       },
       "rdfs:isDefinedBy": {
-        "@id": "https://ghentcdh.github.io/cune-iiif-orm/ns"
+        "@id": "https://w3id.org/cune-iiif-orm"
       }
     },
 
@@ -53,7 +54,7 @@
         "@value": "Describes the structural position of a cuneiform sign within a tablet's text. Encodes the tablet face, line number, word index, and character index, providing a coordinate within the text's logical structure independent of its visual location on the canvas."
       },
       "rdfs:isDefinedBy": {
-        "@id": "https://ghentcdh.github.io/cune-iiif-orm/ns"
+        "@id": "https://w3id.org/cune-iiif-orm"
       }
     },
 
@@ -72,7 +73,7 @@
         "@id": "cune-iiif-orm:LayerPreset"
       },
       "rdfs:isDefinedBy": {
-        "@id": "https://ghentcdh.github.io/cune-iiif-orm/ns"
+        "@id": "https://w3id.org/cune-iiif-orm"
       }
     },
 
@@ -91,13 +92,13 @@
         "@id": "xsd:decimal"
       },
       "rdfs:isDefinedBy": {
-        "@id": "https://ghentcdh.github.io/cune-iiif-orm/ns"
+        "@id": "https://w3id.org/cune-iiif-orm"
       }
     },
 
     {
       "@id": "cune-iiif-orm:transliterating",
-      "@type": "rdf:Property",
+      "@type": "oa:Motivation",
       "rdfs:label": {
         "@language": "en",
         "@value": "transliterating"
@@ -107,7 +108,23 @@
         "@value": "Annotation purpose value indicating that the annotation body contains a transliteration of the targeted cuneiform sign or text. Used as the value of the 'purpose' property on a W3C Web Annotation TextualBody."
       },
       "rdfs:isDefinedBy": {
-        "@id": "https://ghentcdh.github.io/cune-iiif-orm/ns"
+        "@id": "https://w3id.org/cune-iiif-orm"
+      }
+    },
+
+    {
+      "@id": "cune-iiif-orm:translating",
+      "@type": "oa:Motivation",
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "translating"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Annotation purpose value indicating that the annotation body contains a translation of the targeted cuneiform sign or text. Used as the value of the 'purpose' property on a W3C Web Annotation TextualBody."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://w3id.org/cune-iiif-orm"
       }
     },
 
@@ -129,7 +146,7 @@
         "@id": "xsd:string"
       },
       "rdfs:isDefinedBy": {
-        "@id": "https://ghentcdh.github.io/cune-iiif-orm/ns"
+        "@id": "https://w3id.org/cune-iiif-orm"
       }
     },
 
@@ -151,7 +168,7 @@
         "@id": "xsd:positiveInteger"
       },
       "rdfs:isDefinedBy": {
-        "@id": "https://ghentcdh.github.io/cune-iiif-orm/ns"
+        "@id": "https://w3id.org/cune-iiif-orm"
       }
     },
 
@@ -173,7 +190,7 @@
         "@id": "xsd:positiveInteger"
       },
       "rdfs:isDefinedBy": {
-        "@id": "https://ghentcdh.github.io/cune-iiif-orm/ns"
+        "@id": "https://w3id.org/cune-iiif-orm"
       }
     },
 
@@ -195,7 +212,7 @@
         "@id": "xsd:positiveInteger"
       },
       "rdfs:isDefinedBy": {
-        "@id": "https://ghentcdh.github.io/cune-iiif-orm/ns"
+        "@id": "https://w3id.org/cune-iiif-orm"
       }
     }
   ]
