@@ -32,8 +32,8 @@ jobs:
 
       - name: Prepare site
         run: |
-          mkdir -p _site
-          python3 scripts/generate_docs.py vocabulary/cune-iiif-orm.jsonld _site/ns
+          mkdir -p _site/ns
+          python3 scripts/generate_docs.py vocabulary/cune-iiif-orm.jsonld _site/ns/index.html
           cp vocabulary/cune-iiif-orm.jsonld _site/ns.jsonld
           touch _site/.nojekyll
 

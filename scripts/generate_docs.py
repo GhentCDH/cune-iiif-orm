@@ -107,7 +107,7 @@ def generate_html(vocab_path: Path) -> str:
         f'<a href="{escape(license_url)}">{escape(license_url)}</a>' if license_url else ""
     )
 
-    jsonld_url = ns_iri + ".jsonld" if ns_iri else "ns.jsonld"
+    jsonld_url = "../ns.jsonld"
 
     return f"""<!DOCTYPE html>
 <html lang="en">
